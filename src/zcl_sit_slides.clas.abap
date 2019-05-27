@@ -1,0 +1,283 @@
+"! Overview
+"!
+"! Eclipse only
+"! Side-By-Side Model
+"! APIs are essential
+"! How to find all objects?
+"! GIT for LM aspects
+"!
+CLASS ZCL_SIT_SLIDES DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+    METHODS SAP_BASIS_ONLY.
+    METHODS FIORI_ONLY.
+    METHODS CLEAN_ABAP.
+    METHODS RELEASED_APIS_ONLY.
+ENDCLASS.
+
+
+
+CLASS ZCL_SIT_SLIDES IMPLEMENTATION.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  METHOD RELEASED_APIS_ONLY.
+
+*   ONLY RELEASED APIS CAN BE USED
+
+    DATA MY_DATE_OLD TYPE DATUM.
+
+  ENDMETHOD.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  METHOD CLEAN_ABAP.
+
+*   OBSOLETE ABAP STATEMENTS CAN NOT BE USED
+*   --> INCL. FORMS & MACROS
+
+    DATA STRING_TAB TYPE STANDARD TABLE OF STRING.
+    REFRESH STRING_TAB.
+
+  ENDMETHOD.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  METHOD FIORI_ONLY.
+
+*   FIORI ONLY
+*   --> NO REPORTS
+*       NO TRANASCATIONS
+*       NO BSP
+*       NO WEB DYNPRO
+
+    SUBMIT RS_ABAPSOURCE_COMPARE.
+    CALL TRANSACTION 'SE24'.
+
+  ENDMETHOD.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  METHOD SAP_BASIS_ONLY.
+
+*   ONLY BASIS CONTENT IS IN THE SYSTEM
+
+    SELECT * FROM MARA INTO TABLE @DATA(IT_MARA).
+
+  ENDMETHOD.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ENDCLASS.
+
